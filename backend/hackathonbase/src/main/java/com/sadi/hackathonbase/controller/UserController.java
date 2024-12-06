@@ -48,9 +48,9 @@ public class UserController {
                 "fullName", user.getFullName(),
                 "dob", user.getDob(),
                 "gender", user.getGender(),
-                "occupation", user.getOccupation(),
-                "hobbies", user.getHobbies(),
-                "profilePic", user.getProfilePic(),
+                "occupation", (user.getOccupation() == null) ? "" : user.getOccupation(),
+                "hobbies", (user.getHobbies() == null) ? "" : user.getHobbies(),
+                "profilePic", (user.getProfilePic() == null) ? "" : user.getProfilePic(),
                 "score", user.getScore()
         ));
     }
