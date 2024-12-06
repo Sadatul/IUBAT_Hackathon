@@ -7,6 +7,7 @@ import com.sadi.hackathonbase.exceptions.OtpTimedOutException;
 import com.sadi.hackathonbase.exceptions.UserAlreadyExistsException;
 import com.sadi.hackathonbase.models.User;
 import com.sadi.hackathonbase.models.dtos.UnverifiedUser;
+import com.sadi.hackathonbase.models.requests.RegistrationRequest;
 import com.sadi.hackathonbase.repository.UserRepository;
 import com.sadi.hackathonbase.repository.UserVerificationRepository;
 import com.sadi.hackathonbase.utils.CodeGenerator;
@@ -48,16 +49,16 @@ public class UserRegistrationAndVerificationService {
         }
 
     }
-    public void cacheDetails(String username, String password, String fullName, String otp) throws JsonProcessingException {
-        UnverifiedUser unverifiedUser = new UnverifiedUser(new User(username,
-                passwordEncoder.encode(password),
-                fullName), otp);
+    public void cacheDetails(RegistrationRequest regReq, String otp) throws JsonProcessingException {
+        UnverifiedUser unverifiedUser = new UnverifiedUser(new User(regReq.getUsername(),
+                passwordEncoder.encode(regReq.getPassword()),
+                regReq.getFullName(), regReq.getDob(), regReq.getGender()), otp);
 
-        userVerRepo.putUserVerificationInfo(username, unverifiedUser);
+        userVerRepo.putUserVerificationInfo(regReq.getUsername(), unverifiedUser);
     }
 
     public void sendVerificationEmail(String username, String otp) {
-        emailService.sendSimpleEmail(username, verificationEmailSubject,
+        emailService.sendMimeEmail(username, verificationEmailSubject,
                 String.format(verificationEmailMessage, otp, (optExpiration / 60)));
     }
 

@@ -83,7 +83,7 @@ public class ResetPasswordService {
 
     public void sendResetMail(String email, String token) {
         String body = String.format(resetPasswordEmailBody, frontendHost, email, token, resetPasswordTimeout);
-        emailService.sendSimpleEmail(email, "Reset Password", body);
+        emailService.sendMimeEmail(email, "Reset Password", body);
     }
 
     public void deletePasswordToken(String email){

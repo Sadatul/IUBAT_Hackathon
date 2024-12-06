@@ -125,8 +125,7 @@ public class AuthControllerV1 {
         logger.debug("Registered user with email={}", registrationRequest.getUsername());
         String otp = userRegVerService.getOtp();
 
-        userRegVerService.cacheDetails(registrationRequest.getUsername(),
-                registrationRequest.getPassword(), registrationRequest.getFullName(), otp);
+        userRegVerService.cacheDetails(registrationRequest, otp);
 
         userRegVerService.sendVerificationEmail(registrationRequest.getUsername(), otp);
 

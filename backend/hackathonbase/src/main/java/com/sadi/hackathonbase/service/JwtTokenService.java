@@ -41,12 +41,12 @@ public class JwtTokenService {
                 () -> new UsernameNotFoundException(authentication.getName())
         );
         var claims = JwtClaimsSet.builder()
-                                .issuer(issuer)
-                                .issuedAt(Instant.now())
-                                .audience(List.of(audiences))
-                                .expiresAt(Instant.now().plusSeconds(timeout))
-                                .subject(user.getId().toString())
-                                .build();
+                .issuer(issuer)
+                .issuedAt(Instant.now())
+                .audience(List.of(audiences))
+                .expiresAt(Instant.now().plusSeconds(timeout))
+                .subject(user.getId().toString())
+                .build();
         String token = this.jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
         String refreshToken = refreshTokenService.getRefreshTokenForUser(user.getId());
         return new JwtTokenResponse(token, refreshToken, user.getId(), user.getUsername());
