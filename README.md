@@ -93,6 +93,13 @@ For some technical issues we are not able to merge the frontend directly into th
 - Designing a dynamic dashboard that incorporates data insights from the AI chatbot, such as suggesting personalized tasks or activities, was a significant challenge. Ensuring seamless data synchronization between the chatbot and the task system required careful planning and implementation of APIs to provide real-time updates.
 
 - The chatbot was designed not only to interact with users but also to drive engagement by suggesting actionable tasks and tracking user progress. Striking a balance between making the chatbot engaging yet practical, while ensuring that its suggestions were relevant and achievable, posed a creative challenge during development
+
+## Future Planning 
+
+1. **Social Media Integration**: Enhance the platform by incorporating public data from social media platforms like Facebook and Twitter. This integration will enable users to gather insights, analyze trends, and leverage real-time data for improved decision-making or recommendations.
+
+2. **RAG (Retrieval-Augmented Generation) for Large Data Handling**: Implement Retrieval-Augmented Generation techniques for managing and querying large-scale vectorized data. This will allow efficient handling of extensive datasets, ensuring accurate and context-aware results, even when input data scales exponentially.
+
 ## Contributions
 
 Any kind of contributions are welcomed at any time. If you find any issue or have any suggestion for improvement, you are kindly requested to open an issue under this repo or submit a pull request with proper comments. 
