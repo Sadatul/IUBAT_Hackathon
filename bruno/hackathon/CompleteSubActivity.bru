@@ -1,0 +1,18 @@
+meta {
+  name: CompleteSubActivity
+  type: http
+  seq: 22
+}
+
+put {
+  url: {{host}}/v1/activity
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "activityId": 3,
+    "subActivityId": 3
+  }
+}
