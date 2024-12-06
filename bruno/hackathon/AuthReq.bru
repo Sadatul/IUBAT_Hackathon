@@ -1,0 +1,18 @@
+meta {
+  name: AuthReq
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{host}}/v1/auth
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "sadatulislamsadi@gmail.com",
+    "password": "sadi@1"
+  }
+}

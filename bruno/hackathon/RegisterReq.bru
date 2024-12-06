@@ -1,0 +1,21 @@
+meta {
+  name: RegisterReq
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{host}}/v1/auth/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "sadatulislamsadi@gmail.com",
+    "password": "sadi@1",
+    "fullName": "Sadatul",
+    "dob": "2000-08-28",
+    "gender": "MALE"
+  }
+}
