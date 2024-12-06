@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/v1")
@@ -27,12 +29,12 @@ public class ChatControllerV1 {
     }
 
     @PostMapping("/chat")
-    public ResponseEntity<Void> createChatSession(@RequestBody ChatSessionRequest chatSessionRequest) {
+    public ResponseEntity<Map<String, Object>> createChatSession(@RequestBody ChatSessionRequest chatSessionRequest) {
         log.debug("Chat session request received: {}", chatSessionRequest);
         ChatSession chatSession = chatService.createChatSession(chatSessionRequest);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
-                .path("/{id}").buildAndExpand(chatSession.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+//        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
+//                .path("/{id}").buildAndExpand(chatSession.getId()).toUri();
+        return ResponseEntity.ok(Collections.singletonMap("id", chatSession.getId()));
     }
 
     @PostMapping("/chat/messages")
