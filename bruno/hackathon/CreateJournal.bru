@@ -1,0 +1,18 @@
+meta {
+  name: CreateJournal
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{host}}/v1/journals
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Worst day of my life 3",
+    "content": "Life Long learning. Don't invest more than two hours for a CT. Still Crying"
+  }
+}

@@ -1,0 +1,17 @@
+meta {
+  name: CreateChatSession
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{host}}/v1/chat
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "MyTomato"
+  }
+}
