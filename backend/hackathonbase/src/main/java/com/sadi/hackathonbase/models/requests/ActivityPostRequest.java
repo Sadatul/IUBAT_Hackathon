@@ -9,7 +9,7 @@ public class ActivityPostRequest {
     @NotNull
     private String title;
 
-    @Size(min = 1, max = 4)
+//    @Size(min = 1, max = 4)
     private List<String> subActivities;
 
     public ActivityPostRequest() {
