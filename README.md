@@ -87,7 +87,7 @@ To install the project  normally, follow these steps:
   npm start 
 ```
 ### Frontend
-For some technical issues we are not able to merge the frontend directly into this repo. Find the link [here](https://github.com/hasnainadil/soul-sync-frontend/tree/main)
+For some technical issues we are not able to merge the frontend directly into this repo. Find the link [here](https://github.com/hasnainadil/soul-sync-frontend)
 ## Challenges
 
 - Designing a dynamic dashboard that incorporates data insights from the AI chatbot, such as suggesting personalized tasks or activities, was a significant challenge. Ensuring seamless data synchronization between the chatbot and the task system required careful planning and implementation of APIs to provide real-time updates.
