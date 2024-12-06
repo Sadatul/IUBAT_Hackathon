@@ -6,10 +6,10 @@ import com.sadi.hackathonbase.repository.UserRepository;
 import com.sadi.hackathonbase.utils.SecurityUtils;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/user")
@@ -36,5 +36,22 @@ public class UserController {
         userRepository.save(user);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> getUserInfo() {
+        User user = userRepository.findById(SecurityUtils.getOwnerID()).orElseThrow(
+                () -> new UsernameNotFoundException("User not found")
+        );
+        return ResponseEntity.ok(Map.of(
+                "email", user.getUsername(),
+                "fullName", user.getFullName(),
+                "dob", user.getDob(),
+                "gender", user.getGender(),
+                "occupation", user.getOccupation(),
+                "hobbies", user.getHobbies(),
+                "profilePic", user.getProfilePic(),
+                "score", user.getScore()
+        ));
     }
 }
