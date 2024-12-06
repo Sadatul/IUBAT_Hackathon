@@ -1,0 +1,19 @@
+meta {
+  name: CreateChatMessage
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{host}}/v1/chat/messages
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "message": "Piramid Head is a monster",
+    "sessionId": 2,
+    "isUser": false
+  }
+}
